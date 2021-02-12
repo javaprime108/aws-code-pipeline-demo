@@ -9,8 +9,8 @@ pahses :
   post_build :
     commands :
       - echo build completed successfully
-artifacts :
-  files :
+artifacts:
+  files:
     - target/student-service.jar
   discard-paths : yes        
        
