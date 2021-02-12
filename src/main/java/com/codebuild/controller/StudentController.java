@@ -27,4 +27,9 @@ public class StudentController {
 		}
 
 	}
+
+	@GetMapping("/health")
+	public String health() {
+		return "health is ok";
+	}
 }
