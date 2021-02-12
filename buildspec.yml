@@ -11,6 +11,6 @@ pahses :
       - echo build completed successfully
 artifacts:
   files:
-    - target/student-service.jar
+    - /target/student-service.jar
   discard-paths : yes        
        
