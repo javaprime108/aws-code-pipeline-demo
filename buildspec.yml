@@ -12,3 +12,6 @@ artifacts:
   files:
     - target/student-service.jar
   discard-paths: yes
+      
+       
+
