@@ -18,6 +18,10 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
+        - run:
+          name: add execution permission
+          command: |
+                   chmod +x mvnw
       - checkout
       - run: ./mvnw -Dmaven.test.skip=true package
 
