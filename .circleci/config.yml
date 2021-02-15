@@ -1,12 +1,32 @@
 version: 2.0
 
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/openjdk:stretch
         auth:
           username: $DOCKER_USERNAME
-          password: $DOCKER_PASSWORD  # context / project UI env-var reference
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - run: ./mvnw package
+      - run: ./mvnw test
+
+  build:
+    docker:
+      - image: circleci/openjdk:stretch
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    steps:
+      - checkout
+      - run: ./mvnw -Dmaven.test.skip=true package
+
+workflows:
+  version: 2
+
+  build-then-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
