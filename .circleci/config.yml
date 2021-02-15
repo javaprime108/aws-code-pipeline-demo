@@ -21,7 +21,7 @@ jobs:
         - run:
           name: add execution permission
           command: |
-                   chmod +x mvnw
+                   chmod +x ./mvnw
       - checkout
       - run: ./mvnw -Dmaven.test.skip=true package
 
